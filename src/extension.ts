@@ -112,7 +112,7 @@ export function activate(context: ExtensionContext) {
 
   let doUpdateColors = true;
 
-  if (cc && (cc['activityBar.background'] || cc['titleBar.activeBackground'] || cc['titleBar.activeForeground'])) {
+  if (cc && (cc['titleBar.activeBackground'] || cc['titleBar.activeForeground'])) {
     //don't overwrite
     doUpdateColors = false;
   }
