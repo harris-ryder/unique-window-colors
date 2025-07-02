@@ -34,10 +34,9 @@ export class SettingsFileDeleter {
       fs.unlinkSync(settingsfile);
       fs.rmdirSync(vscodeSettingsDir);  //only deletes empty folders
     }
-    else if (Object.keys(settingsFileJson).length === 1 && Object.keys(cc).length === 3) {
+    else if (Object.keys(settingsFileJson).length === 1 && Object.keys(cc).length === 2) {
 
       const aColorWasModified =
-        (cc['activityBar.background'] !== this.colors.sideBarColor_dark.hex() && cc['activityBar.background'] !== this.colors.sideBarColor_light.hex()) ||
         (cc['titleBar.activeBackground'] !== this.colors.titleBarColor_dark.hex() && cc['titleBar.activeBackground'] !== this.colors.titleBarColor_light.hex()) ||
         (cc['titleBar.activeForeground'] !== this.colors.titleBarTextColor_dark.hex() && cc['titleBar.activeForeground'] !== this.colors.titleBarTextColor_light.hex());
 
@@ -124,7 +123,6 @@ export function activate(context: ExtensionContext) {
   if (doUpdateColors || doRemoveColors) {
 
     const newColors = {
-      "activityBar.background": doRemoveColors ? undefined : sideBarColor.hex(),
       "titleBar.activeBackground": doRemoveColors ? undefined : titleBarColor.hex(),
       "titleBar.activeForeground": doRemoveColors ? undefined : titleBarTextColor.hex(),
       //these lines are for development since the extension demo doesn't show the formatted title bar
