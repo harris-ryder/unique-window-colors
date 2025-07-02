@@ -47,6 +47,32 @@ When opening new VSCode windows, you might see the relevant theme colors change 
 
 <img src="https://github.com/stuartcrobinson/unique-window-colors/blob/master/img/colorflicker.gif?raw=true" alt="drawing" width="200"/>
 
+## Harris's Instructions
+
+### Installation from Source
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Compile the TypeScript code
+npm run compile
+
+# 3. Package the extension (requires vsce)
+npm install -g vsce
+vsce package
+
+# 4. Install the generated .vsix file
+code --install-extension unique-window-colors-1.0.50.vsix
+```
+
+### Installation from Marketplace
+
+If the extension is published to the VS Code marketplace:
+```bash
+code --install-extension stuart.unique-window-colors
+```
+
 ## Credits
 
 Hashing and color generation functions adapted from https://www.designedbyaturtle.co.uk/convert-string-to-hexidecimal-colour-with-javascript-vanilla/ by Edd Turtle.
